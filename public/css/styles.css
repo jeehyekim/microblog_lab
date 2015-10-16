@@ -106,6 +106,15 @@ div.textarea {
 	margin-bottom: 100px;
 }
 
+span.close {
+	color:white;
+	opacity: 1.0;
+	text-shadow: none;
+	font-size:18px;
+	font-weight: 500;
+	line-height: .8;
+}
+
 hr {
 	color: white;
 }

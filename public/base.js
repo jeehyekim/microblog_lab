@@ -26,10 +26,11 @@ $(document).ready(function(){
 			if ($('#micro-content').val().trim().length > 0) {
 				var counter = 3;
 				var microContent = $('#micro-content').val();
-				var newContent = "<div class='list-group-item' id='post-'" + counter + ">" + microContent + "<br><span id='date'></span></div>";
+				var newContent = "<div class='list-group-item' id='post-'" + counter + ">" + microContent + "<br><span id='date'></span><span class='close'>x</span></div>";
 				$('#micro-posts').prepend(newContent).each(function(){$('#date',this).html(postDate + "      " + postTime + heartIcon);});
 				$('#micro-content').val('');
 				counter++;
+				console.log("client side keydown works");
 		$('.list-group-item').on('click',function(e) {
 			$('#date').children().html(count++);
 			
