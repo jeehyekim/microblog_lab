@@ -82,14 +82,6 @@ div.container {
 	text-align: center;
 }
 
-div.tiny-border-bottom{
-    content: '';
-    text-align: center;
-    display: block;
-    width: 70px;
-    border-bottom: 2px solid white;
-    margin-bottom: 50px
-}
 
 textarea.transparent-input {
 	background-color: transparent;
@@ -102,7 +94,7 @@ div#post-date {
 	clear: both;
 }
 
-div.textarea {
+.textarea {
 	margin-bottom: 100px;
 }
 
@@ -119,7 +111,7 @@ hr {
 	color: white;
 }
 
-div.list-group-item {
+li.list-group-item {
 	background-color: transparent;
 	border: none;
 }
