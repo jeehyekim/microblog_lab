@@ -20,15 +20,24 @@ $(document).ready(function(){
 		// event.preventDefault();
 		if(event.keyCode == 13) {
 			if ($('#micro-content').val().trim().length > 0) {
-				microContent = $('#micro-content').val();
+				microContent = $('#micro-content').serialize();
 				$('#micro-content').val('');
 				console.log("form submitted");
 
-				$.post('/', microContent, function(data) {
+				$.ajax({
+					url: '/posts',
+					type: "POSTS",
+					data: microContent
+				})
+				.done(function(data) {
 					console.log(microContent);
 				    var newContent = "<li class='list-group-item'>" + microContent + "<span data-id='" + data._id + "' class='close delete'>X</span></li>";
 					    $('.entries').prepend(newContent);
+				})
+				.fail(function(data) {
+					console.log("failed to post");
 				});
+
 		return false;
 			}
 		}

@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //index
-app.get('/', function(req,res){
+app.get('/posts', function(req,res){
 	db.Posts.find({}, function(err, posts) {
 		if (err) console.log(err);
 		res.render('index', {posts:posts});
@@ -25,16 +25,17 @@ app.get('/posts/:id', function(req,res){
 });
 
  //create
-// app.post('/posts', function(req,res){
-// 	console.log(req.content);
-// 	var post = req.content;
-// 	Posts.push(post);
-// 	Posts.create(post, function(err, post) {
-// 		res.status(200).json(post);
-// 	});	
-	// posts.push(post);
-// });
-
+app.post('/posts', function(req,res){
+	console.log(req.body);
+	var post = req.body;
+	Posts.push(post);
+	db.Posts.create(post, function(err, post) {
+		if (err) console.log(err);
+		res.json(post);
+		console.log("Post request went through");
+	});
+});
+// 
 // app.delete('/posts/:_id', function(req, res) {
 //     console.log('post id is: ', req.params);
 //     db.Posts.find({
