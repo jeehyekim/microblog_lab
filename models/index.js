@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/microposts');
+mongoose.connect('mongodb://localhost/posts');
 
 var db = mongoose.connect;
 

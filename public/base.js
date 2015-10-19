@@ -12,44 +12,32 @@ $(document).ready(function(){
 			var day = date.getDate();
 			var year = date.getFullYear();
 			var postDate =  (month+1) + "/" + day + "/" + year;
-
+			var microContent;
 
 	$('#popover').popover({html:true});
 
-
 	$('#micro-content').keydown(function(event) {
+		// event.preventDefault();
 		if(event.keyCode == 13) {
-			var count = 0;
 			if ($('#micro-content').val().trim().length > 0) {
-				var microContent = $('#micro-content').val();
-				console.log(microContent);
+				microContent = $('#micro-content').val();
 				$('#micro-content').val('');
-				console.log("client side keydown works");
+				console.log("form submitted");
 
-				// $.ajax ({
-				// 	type: "POST",
-				// 	url: '/posts',
-				// 	data: microContent
-				// })
-				// .done(function(data) {
-				// 	console.log("Made a post successfully: ",  data);
-				// 	var newContent = "<li class='list-group-item'>" + microContent + "<span data-id='" + data._id + "' class='close delete'>X</span></li>";
-				// 	$('.list-group').prepend(newContent);
-				// })
-				// .fail(function(data) {
-				// 	console.log("Failed to make post");
-				// });
-
-
-
-		$('.entries').on('click', '.close', function(e) {
-			e.preventDefault();
-			console.log("delete works");
-		});
+				$.post('/', microContent, function(data) {
+					console.log(microContent);
+				    var newContent = "<li class='list-group-item'>" + microContent + "<span data-id='" + data._id + "' class='close delete'>X</span></li>";
+					    $('.entries').prepend(newContent);
+				});
 		return false;
 			}
 		}
 
+	});
+
+	$('.entries').on('click', '.close', function(e) {
+		e.preventDefault();
+		console.log("delete works");
 	});
 
 });
