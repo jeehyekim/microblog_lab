@@ -23,6 +23,7 @@
   </head>
   <body>
 
+    <!-- NAVBAR WITH POPOVER ON LOGO -->
     <nav class="navbar">
         <div class="navbar-header">
           <a id="popover" class="btn" rel="popover" data-placement="bottom" data-content="<ul><a href='https://github.com/jeehyekim'><li>GITHUB</li></a><a href='https://www.linkedin.com/in/kimjeehye'><li>LINKEDIN</li></a><a href='http://www.jeehyekim.com'><li>WEBSITE</li></a><a href='mailto:iam@jeehyekim.com'><li>EMAIL</li></a></ul>">
@@ -30,23 +31,29 @@
         </div>
     </nav>
 
+
+    <!-- CONTENT DIV -->
     <div class="container" id="page-wrapper">
           <header class="span12">
             <h1>BLANK PAGES</h1>
           </header>
-          <form class="textarea col-sm-6 col-sm-offset-3">
-            <input type="text" name="body" id="micro-content" cols="30" rows="3" class="form-control transparent-input"></textarea>
+
+         <!--  TEXTAREA -->
+          <form class="textarea col-sm-6 col-sm-offset-3 input-group" id="newPost">
+            <input type="text" name="post" id="micro-content" cols="30" rows="3" class="form-control transparent-input"></input>
+            <span class="input-group-btn">
+              <button class="btn " id="submit" type="button" value="SUBMIT">SUBMIT</button>
+            </span>
           </form>
 
             <ul class="entries list-group col-sm-8 col-sm-offset-2">
               <% for(i=0; i<posts.length; i++) {%>
               <li class="list-group-item ">
-                <%= posts[i].content  %> <span data-id=" <%= posts._id %>" class="close delete">x</span>
+                <%= posts[i].content  %> <span data-id="<%= posts[i]._id %>" class="close delete">x</span>
               </li>
               <% } %>
             </ul>
     </div>
-    <div class="container bottom"></div>
   </body>
 </html>
 
